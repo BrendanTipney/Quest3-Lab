@@ -13,7 +13,7 @@ public class PuzzlePiece : MonoBehaviour
 {
     // Start is called before the first frame update
     public float threshold = 0.2f;
-    public float angleThreshold = 3f;
+    public float angleThreshold = 5f;
     private string debugString;
     public bool debugEnable = false;
     public UnityEngine.UI.Text debugText;
@@ -32,7 +32,7 @@ public class PuzzlePiece : MonoBehaviour
             if (!Locked)
             {
                 float dist = Vector3.Distance(this.transform.position, matchedPiece.transform.position);
-                this.GetComponent<SkinnedMeshRenderer>().material.SetFloat("_normalAdd", dist);
+                //this.GetComponent<SkinnedMeshRenderer>().material.SetFloat("_normalAdd", dist);
                 //debugString += "Dist = "+dist+"\n";
                 if (dist<threshold)
                 {
@@ -51,10 +51,7 @@ public class PuzzlePiece : MonoBehaviour
                 }
             }
             //Debug.Log(debugString);
-            if(this.GetComponent<HandGrabInteractable>().Interactors != null)
-            {
-                debugText.text = debugString;
-            }
+            //debugText.text = debugString;
             debugString = "";
         }
     }
